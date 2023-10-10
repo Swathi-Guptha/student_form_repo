@@ -1,0 +1,192 @@
+html, body {
+min-height: 100%;
+}
+body, div, form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    /* color: #eee; */
+}
+body {
+    /*Not sure what is this doing*/
+    background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
+    background-size: cover;
+}
+h1, h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.left-part, form {
+    padding: 25px;
+}
+
+.left-part {
+    text-align: center;
+}
+
+
+.fa-graduation-cap {
+    font-size: 60px;
+}
+
+
+form {
+    background: rgba(0, 0, 0, 0.7); 
+    width:40%;
+}
+
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #eee;
+    padding: 10px;
+    }
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+    color: white;
+    }
+
+
+input::placeholder,span, legend {
+    color: #eee;
+}
+
+.name-input-container{
+    display: flex;
+}
+
+.name-input-container input {
+    flex: 1; /* Make both input elements take up equal space */
+    margin-right: 10px; /* Add some spacing between them */
+  
+}
+
+
+.address-input-container{
+    display: flex;
+}
+
+.address-input-container input {
+    flex: 1; /* Make both input elements take up equal space */
+    margin-right: 10px; /* Add some spacing between them */
+    
+}
+
+
+.state-input-container{
+    display: flex;
+}
+
+.state-input-container input {
+    flex: 1; /* Make both input elements take up equal space */
+    margin-right: 10px; /* Add some spacing between them */
+   
+}
+
+.contact-input-container{
+    display: flex;
+}
+
+.contact-input-container input {
+    flex: 1; /* Make both input elements take up equal space */
+    margin-right: 10px; /* Add some spacing between them */
+   
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px; /* Add spacing between rows */
+}
+
+.radio-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fieldset{
+    margin-bottom: 40px;
+}
+select{
+    color: white;
+    padding: 5px;
+    text-align: center; /* Center-align the text within the select */
+    width: 50%;
+    margin: 0 auto;
+}
+
+option:focus {
+    border: none;
+}
+option {
+    background: black; 
+    border: none;
+    color: #eee;
+
+    }
+
+
+.checkbox input {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+.main-block {
+    flex-direction: row;
+    height: calc(100% - 50px);
+    }
+    .left-part, form {
+    flex: 1;
+    height: auto;
+}
+
+button:hover, .btn-item:hover {
+    background: #85d6de;
+    }
+
+.btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+}
+
+.btn-item, button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px; 
+    border: none;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    }
+    
+    button {
+    width: 100%;
+    }

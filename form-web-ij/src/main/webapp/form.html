@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student registration form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="./css/form.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>Student Survey Form</h1>
+    </div>
+    <form action="/">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Form</h2>
+        </div>
+        <div class="info">
+            <div class="name-input-container">
+                <input class="fname" type="text" placeholder="First name" required>
+                <input class="lname" type="text"  placeholder="Last name" required>
+            </div>
+
+            <div class="address-input-container">
+                <input class="streetname" type="text" placeholder="Street Address" required>
+                <input class="cityname" type="text" placeholder="City" required>
+            </div>
+
+            <div class="state-input-container">
+                <input class="statename" type="text" placeholder="State" required>
+                <input class="zipcode" type="text" pattern="[0-9]{5}" placeholder="ZipCode" required>
+            </div>
+
+            <div class="contact-input-container">
+                <input class="phoneno" type="text" pattern="[0-9]{10}" placeholder="Phone Number" required>
+                <input class="id" type="text" placeholder="Email id" required>
+            </div>
+          <input class="date" type="text" onfocus = "(this.type = 'date')" placeholder="Date of Survey" required>
+        
+        <fieldset>
+            <legend>Most Liked abount campus</legend>
+            <div class="row">
+                <label>
+                    <input type="checkbox" name="check1"> 
+                    <span class="checktype1">Students</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="check2"> 
+                    <span class="checktype2">Location</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="check3"> 
+                    <span class="checktype3">Campus</span>
+                </label>
+            </div>
+            
+            <div class="row">
+                <label>
+                    <input type="checkbox" name="check4"> 
+                    <span class="checktype4">Atmosphere</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="check5"> 
+                    <span class="checktype5">Sports</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="check6"> 
+                    <span class="checktype6">Dorm Rooms</span>
+                </label>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Interest in university</legend>
+            <div class="radio-row">
+                <label>
+                    <input type="radio" name="radio1"> 
+                    <span class="radiotype1">Friends</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio2"> 
+                    <span class="radiotype2">Television</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio3"> 
+                    <span class="radiotype3">Internet</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio4"> 
+                    <span class="radiotype4">Other</span>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>How likely would you recommend this University?</legend>
+            <select>
+                <option value="course-type" selected>*Select an option*</option>
+                <option value="short-courses">Very Likely</option>
+                <option value="featured-courses">Likely</option>
+                <option value="undergraduate">Unlikely</option>
+            </select>
+        </fieldset> 
+        
+        <input class="rafflevalues" type="text" placeholder="Raffle(Enter atleast 10 comma seperated numbers(1-10))" required>
+        <input class="comments" type="text" placeholder="Any Additional comments" required>
+          
+        </div>
+
+        <div class="submmison">
+            <button type="submit" href="/">Submit</button>
+            <button type="cancel" href="/">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
