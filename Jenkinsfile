@@ -11,7 +11,9 @@ pipeline{
             {
                 script{
                     checkout scm
+                    echo '-------checkout scm'
                     sh 'rm -rf *.war'
+                    echo '-----war build'
                     sh 'jar -cvf form1-1.war -c WebContent/ .'
                     sh 'echo ${BUILD_TIMESTAMP}'
                     sh 'docker login -u swathiguptha -p ${DOCKERHUB_PASS}'
