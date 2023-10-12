@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "swathiguptha/student-form-image"
+        registry = 'swathiguptha/student-form-image'
         registryCredential = 'swatydock'
     }
     agent any
@@ -9,9 +9,9 @@ pipeline {
             steps {
                 script {
                     sh 'echo ${BUILD_TIMESTAMP}'
-                    docker.withRegistry('',registryCredential){
-                        def customImg = docker.build("swathiguptha/student-form-image:test")
-                   }
+                    docker.withRegistry('', registryCredential) {
+                        def customImg = docker.build('swathiguptha/student-form-image:test')
+                    }
                 }
             }
         }
@@ -20,7 +20,12 @@ pipeline {
             steps
             {
                 script {
-                    sh 'docker push swathiguptha/student-form-image:test'
+                    docker.withRegistry('', registryCredential) {
+                        def image = docker.build('swathiguptha/student-form-image:test', '.')
+                        docker.withRegistry('', registryCredential) {
+                            image.push()
+                        }
+                    }
                 }
             }
         }
