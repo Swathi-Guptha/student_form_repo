@@ -1,0 +1,35 @@
+pipeline {
+    environment {
+        registry = "swathiguptha/student-form-image"
+        registryCredential = 'swatydock'
+    }
+    agent any
+    stages {
+        stage('Buiding the student survey image') {
+            steps {
+                script {
+                    sh 'echo ${BUILD_TIMESTAMP}'
+                    docker.withRegistry('',registryCredential){
+                        def customImg = docker.build("swathiguptha/student-form-image:test")
+                   }
+                }
+            }
+        }
+        stage('Pushing docker image to Docker Hub')
+        {
+            steps
+            {
+                script {
+                    sh 'docker push swathiguptha/student-form-image:test'
+                }
+            }
+        }
+        stage('Deploying as a pod to rancher')
+        {
+            steps
+            {
+                sh 'kubectl set image deployment/survey-pipeline survey-pipeline=swathiguptha/student-form-image:test -n jenkins-pipeline'
+            }
+        }
+    }
+}
