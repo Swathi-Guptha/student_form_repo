@@ -10,7 +10,7 @@ pipeline {
                 script {
                     sh 'echo ${BUILD_TIMESTAMP}'
                     docker.withRegistry('', registryCredential) {
-                        def customImg = docker.build('swathiguptha/student-form-image:${BUILD_TIMESTAMP}')
+                        def customImg = docker.build('swathiguptha/student-form-image:test')
                     }
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
             {
                 script {
                     docker.withRegistry('', registryCredential) {
-                        def image = docker.build('swathiguptha/student-form-image:${BUILD_TIMESTAMP}', '.')
+                        def image = docker.build('swathiguptha/student-form-image:test', '.')
                         docker.withRegistry('', registryCredential) {
                             image.push()
                         }
@@ -34,7 +34,7 @@ pipeline {
             steps
             {
                 script{
-                    sh 'kubectl set image deployment/student-form-cluster container-0=swathiguptha/student-form-image:${BUILD_TIMESTAMP}'
+                    sh 'kubectl set image deployment/student-form-cluster container-0=swathiguptha/student-form-image:test'
                 }
             }
         }
