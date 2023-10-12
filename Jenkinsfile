@@ -1,6 +1,7 @@
 pipeline{
     agent any
     environment{
+        DOCKER_U = "swathiguptha/student-form-image"
         DOCKERHUB_PASS = credentials('@swathi08G')
     }
     stages
@@ -10,9 +11,8 @@ pipeline{
             steps
             {
                 script{
-                    checkout scm
                     sh 'rm -rf *.war'
-                    sh 'jar -cvf form1-1.war -c WebContent/ .'
+                    sh 'mvn clean package'
                     sh 'echo ${BUILD_TIMESTAMP}'
                     sh 'docker login -u swathiguptha -p ${DOCKERHUB_PASS}'
                     def customImg = docker.build("swathiguptha/student-form-image:${BUILD_TIMESTAMP}")
