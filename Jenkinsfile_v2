@@ -17,8 +17,8 @@ pipeline{
                     sh 'echo ${BUILD_TIMESTAMP}'
                     image = docker.build("swathiguptha/student-form-image:test")
                     /*docker.withRegistry('', registryCredential) {
-                       def dockerImage = docker.build("swathiguptha/student-form-image:+${BUILD_TIMESTAMP}")*/
-                    }
+                       def dockerImage = docker.build("swathiguptha/student-form-image:+${BUILD_TIMESTAMP}")
+                    }*/
                 }
             }
         }
