@@ -1,7 +1,7 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        DOCKER_U = "swathiguptha/student-form-image"
+    environment {
+        DOCKER_U = 'swathiguptha/student-form-image'
         DOCKERHUB_PASS = credentials('@swathi08G')
     }
     stages
@@ -10,7 +10,7 @@ pipeline{
         {
             steps
             {
-                script{
+                script {
                     sh 'rm -rf *.war'
                     sh 'mvn clean package'
                     sh 'echo ${BUILD_TIMESTAMP}'
@@ -23,7 +23,7 @@ pipeline{
         {
             steps
             {
-                script{
+                script {
                     sh 'docker push swathiguptha/student-form-image:${BUILD_TIMESTAMP}'
                 }
             }
@@ -35,6 +35,5 @@ pipeline{
                 sh 'kubectl set image deployment/survey-pipeline survey-pipeline=swathiguptha/student-form-image:${BUILD_TIMESTAMP} -n jenkins-pipeline'
             }
         }
-
     }
 }
