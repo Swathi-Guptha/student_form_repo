@@ -34,7 +34,7 @@ pipeline {
             steps
             {
                 script{
-                    sh 'kubectl set image deployment/student-form-cluster container-0=swathiguptha/student-form-image:test'
+                    sh 'kubectl set image deployment/form-deployment container-0=swathiguptha/student-form-image:test'
                 }
             }
         }
