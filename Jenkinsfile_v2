@@ -13,26 +13,17 @@ pipeline{
     agent any
     stages
     {
-        stage('Install Maven') {
-            steps {
-                script {
-                    def mvnHome = tool name: 'Maven', type: 'hudson.tasks.Maven$MavenInstallation'
-                    sh "wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-                    sh "tar -xvf apache-maven-3.6.3-bin.tar.gz"
-                    sh "mv apache-maven-3.6.3 $mvnHome"
-                }
-            }
-        }
-        stage('Maven Build')
-        {
-            steps
-            {
-                script
-                {
-                    sh 'mvn clean package'
-                }
-            }
-        }
+        
+        // stage('Maven Build')
+        // {
+        //     steps
+        //     {
+        //         script
+        //         {
+        //             sh 'mvn clean package'
+        //         }
+        //     }
+        // }
         stage('Building docker image')
         {
             steps
