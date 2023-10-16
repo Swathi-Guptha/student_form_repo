@@ -4,6 +4,8 @@ pipeline{
     {
         registry = "swathiguptha/student-form-image"
         registryCredential = "docker-login"
+        date = new Date().format('yy. M')
+        tag = "${date}"
     }
     agent any
     stages
@@ -15,7 +17,7 @@ pipeline{
                 script
                 {
                     sh 'echo ${BUILD_TIMESTAMP}'
-                    image = docker.build("swathiguptha/student-form-image"+"${BUILD-TIMESTAMP}")
+                    image = docker.build("swathiguptha/student-form-image"+"${tag}")
                     /*docker.withRegistry('', registryCredential) {
                        def dockerImage = docker.build("swathiguptha/student-form-image:+${BUILD_TIMESTAMP}")
                     }*/

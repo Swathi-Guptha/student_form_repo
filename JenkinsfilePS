@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = 'swathiguptha/student-form-image'
         registryCredential = 'swatydock'
+        "
     }
     agent any
     stages {
