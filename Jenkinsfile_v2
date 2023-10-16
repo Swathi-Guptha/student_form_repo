@@ -4,9 +4,6 @@ def generateTag() {
     return "build-" + new Date().format("yyyyMMdd-HHmmss")
 }
 
-tools{
-
-}
 pipeline{
     environment
     {
