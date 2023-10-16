@@ -44,7 +44,7 @@ pipeline{
                 script
                 {
                     
-                    sh 'kubectl kubeconfig =/home/ubuntu/.kube/config.yaml set image deployment/form-deployment student-form-cluster=swathiguptha/student-form-image:'+tag
+                    sh 'kubectl --kubeconfig =/home/ubuntu/.kube/config.yaml set image deployment/form-deployment student-form-cluster=swathiguptha/student-form-image:'+tag
                 }
             }
         }
