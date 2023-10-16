@@ -35,8 +35,7 @@ pipeline{
                 {
                     docker.withRegistry('',registryCredential)
                     {
-                        image.push("${BUILD_TIMESTAMP}")
-                        image.push("latest")
+                        image.push()
                     }
                 }
             }
