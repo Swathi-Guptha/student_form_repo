@@ -12,13 +12,23 @@ pipeline{
     agent any
     stages
     {
-        stage('Building docker image')
+        stage('Maven Build')
         {
             steps
             {
                 script
                 {
                     sh 'mvn clean package'
+                }
+            }
+        }
+        stage('Building docker image')
+        {
+            steps
+            {
+                script
+                {
+                    
                     sh 'echo ${BUILD_TIMESTAMP}'
                     tag = generateTag()
                     image = docker.build("swathiguptha/student-form-image:"+tag)
