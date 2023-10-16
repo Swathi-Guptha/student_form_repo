@@ -19,9 +19,7 @@ pipeline{
             {
                 script
                 {
-                    checkout scm
-                    sh 'rm -rf *.war'
-                    sh 'jar -cvf form1-1.war -C src/main/webapp'
+                    sh 'mvn clean package'
 
                     
                     sh 'echo ${BUILD_TIMESTAMP}'
