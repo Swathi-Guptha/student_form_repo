@@ -17,7 +17,7 @@ pipeline{
             steps {
                 script {
                     def mvnHome = tool name: 'Maven', type: 'hudson.tasks.Maven$MavenInstallation'
-                    sh "wget https://apache.mirrors.tworzy.net/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz"
+                    sh "wget --no-check-certificate https://apache.mirrors.tworzy.net/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz"
                     sh "tar -xf apache-maven-3.8.4-bin.tar.gz"
                     sh "mv apache-maven-3.8.4 $mvnHome"
                 }
