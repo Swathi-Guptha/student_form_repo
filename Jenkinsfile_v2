@@ -20,10 +20,7 @@ pipeline{
                 {
                     sh 'echo ${BUILD_TIMESTAMP}'
                     tag = generateTag()
-                    image = docker.build("swathiguptha/student-form-image"+tag)
-                    /*docker.withRegistry('', registryCredential) {
-                       def dockerImage = docker.build("swathiguptha/student-form-image:+${BUILD_TIMESTAMP}")
-                    }*/
+                    image = docker.build("swathiguptha/student-form-image:"+tag)
                 }
             }
         }
@@ -37,6 +34,16 @@ pipeline{
                     {
                         image.push()
                     }
+                }
+            }
+        }
+        stage('Deploying Rancher to single nodes') 
+        {
+            steps
+            {
+                script
+                {
+                    sh 'kubectl set image deployment/form-deployment student-form-cluster=swathiguptha/student-form-image:'+tag
                 }
             }
         }
